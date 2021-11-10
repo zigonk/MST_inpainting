@@ -12,6 +12,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--image_path', type=str, required=True, help='image path')
     parser.add_argument('--mask_path', type=str, required=True, help='mask path')
+    parser.add_argument('--lsm_path', type=str, required=True, help='lsm path')
     parser.add_argument('--gpu_id', type=int, default=0, help='gpu id')
     parser.add_argument('--PATH', type=str, default='./check_points/MST_P2M',
                         help='MST_P2M:Man-made Places2, MST_P2C:Comprehensive Places2, '
@@ -31,6 +32,7 @@ if __name__ == '__main__':
     config.PATH = args.PATH
     config.valid_th = args.valid_th
     config.mask_th = args.mask_th
+    config.lsm_hawp_ckpt = args.lsm_path
 
     # init device
     if torch.cuda.is_available():
